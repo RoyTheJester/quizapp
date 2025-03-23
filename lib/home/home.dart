@@ -9,8 +9,7 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () => Navigator.pushNamed(context, "/about"),
-          // style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-          child: Text("about"),
+          child: Text("about", style: Theme.of(context).textTheme.labelLarge),
         ),
       ),
     );
