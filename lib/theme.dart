@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
+import "package:google_fonts/google_fonts.dart";
 
 var appTheme = ThemeData(
+  fontFamily: GoogleFonts.ubuntu().fontFamily,
   appBarTheme: const AppBarTheme(color: Color.fromRGBO(65, 65, 65, 1)),
   bottomAppBarTheme: const BottomAppBarTheme(color: Color.fromRGBO(0, 0, 0, 1)),
   brightness: Brightness.dark,
