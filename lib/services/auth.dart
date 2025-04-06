@@ -13,4 +13,23 @@ class AuthService {
   // This is useful when you have an event like a button press and you want
   // to check if the user is logged in or not.
   final user = FirebaseAuth.instance.currentUser;
+
+  // Anonymous Firebase login
+  Future<void> anonLogin() async {
+    try {
+      await FirebaseAuth.instance.signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      // Handle error
+      print('Error signing in anonymously: ${e.message}');
+    }
+  }
+
+  Future<void> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+    } on FirebaseAuthException catch (e) {
+      // Handle error
+      print('Error signing out: ${e.message}');
+    }
+  }
 }
