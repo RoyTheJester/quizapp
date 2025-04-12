@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 // There are two ways to implement authentication in Flutter:
 // using Firebase Authentication or using a custom backend.
@@ -30,6 +30,24 @@ class AuthService {
     } on FirebaseAuthException catch (e) {
       // Handle error
       print('Error signing out: ${e.message}');
+    }
+  }
+
+  Future<void> googleLogin() async {
+    try {
+      final googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        // The user canceled the sign-in
+        return;
+      }
+      final googleAuth = await googleUser.authentication;
+      final authCredential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      await FirebaseAuth.instance.signInWithCredential(authCredential);
+    } on FirebaseAuthException catch (e) {
+      // Handle error
     }
   }
 }
