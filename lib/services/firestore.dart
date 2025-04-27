@@ -33,4 +33,21 @@ class FirestoreService {
     // If the document does not exist, return an empty Quiz object
     return Quiz.fromJson(snapshot.data() ?? {});
   }
+
+  // Listens to current user's report document in Firestore
+  Stream<Report> streamReport() {
+    // We need the current user's ID as they may have logged out
+    // rxdart allows us to use switchMap to listen to the user stream and then switch to another
+    return AuthService().userStream.switchMap((user) {
+      if (user != null) {
+        var ref = _db.collection('reports').doc(user.uid);
+
+        // The ! operator is used to assert that the document exists and has data
+        return ref.snapshots().map((doc) => Report.fromJson(doc.data()!));
+      } else {
+        // If the user is null, return a default Report document
+        return Stream.fromIterable([Report()]);
+      }
+    });
+  }
 }
