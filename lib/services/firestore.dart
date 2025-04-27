@@ -50,4 +50,21 @@ class FirestoreService {
       }
     });
   }
+
+  // Updates the current user's report document after completing a quiz
+  Future<void> updateUserReport(Quiz quiz) {
+    var user = AuthService().user!;
+    var ref = _db.collection('reports').doc(user.uid);
+
+    var data = {
+      // Update the report document with the quiz ID and increment the total number of quizzes taken
+      'total': FieldValue.increment(1),
+      'topics': {
+        // Merge value into a Firestore list
+        FieldValue.arrayUnion([quiz.id]),
+      },
+    };
+
+    return ref.set(data, SetOptions(merge: true));
+  }
 }
