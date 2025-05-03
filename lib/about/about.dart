@@ -7,7 +7,10 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("About")),
+      appBar: AppBar(
+        title: const Text("About"),
+        backgroundColor: Colors.deepPurple,
+      ),
       bottomNavigationBar:
           const BottomNavBar(), // Assuming BottomNavBar is defined elsewhere
       body: const Center(child: Text("This is the About page.")),
