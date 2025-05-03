@@ -23,17 +23,15 @@ class BottomNavBar extends StatelessWidget {
       ],
       fixedColor: Colors.deepPurple[200],
       onTap: (int idx) {
-        // Handle navigation based on the index tapped
-        switch (idx) {
-          case 0:
-            Navigator.pushNamed(context, '/topics');
-            break;
-          case 1:
-            Navigator.pushNamed(context, '/about');
-            break;
-          case 2:
-            Navigator.pushNamed(context, '/profile');
-            break;
+        // Define a list of routes corresponding to the BottomNavigationBar items
+        const routes = ['/topics', '/about', '/profile'];
+
+        // Get the current route name
+        String currentRoute = ModalRoute.of(context)?.settings.name ?? '';
+
+        // Navigate to the selected route if it's not the current route
+        if (currentRoute != routes[idx]) {
+          Navigator.pushNamed(context, routes[idx]);
         }
       },
     );
