@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'package:quizapp/routes.dart';
+import 'package:quizapp/services/models.dart';
+import 'package:quizapp/services/firestore.dart';
 import 'package:quizapp/theme.dart';
 import 'firebase_options.dart';
 
@@ -16,10 +19,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: appTheme,
-      routes: appRoutes,
+    return StreamProvider(
+      create: (_) => FirestoreService().streamReport(),
+      initialData: Report(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: appTheme,
+        routes: appRoutes,
+      ),
     );
   }
 }
