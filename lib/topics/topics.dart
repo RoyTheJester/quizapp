@@ -4,6 +4,7 @@ import 'package:quizapp/services/models.dart';
 import 'package:quizapp/shared/bottom_nav.dart';
 import 'package:quizapp/shared/error.dart';
 import 'package:quizapp/shared/loading.dart';
+import 'package:quizapp/topics/drawer.dart';
 import 'package:quizapp/topics/topic_item.dart';
 
 class TopicsScreen extends StatelessWidget {
@@ -31,6 +32,8 @@ class TopicsScreen extends StatelessWidget {
               backgroundColor: Colors.deepPurple,
               title: const Text("Topics"),
             ),
+
+            drawer: TopicDrawer(topics: topics),
             // Using count we put 2 items in a row and they rest follow in the next row infinitely
             body: GridView.count(
               primary: false,
