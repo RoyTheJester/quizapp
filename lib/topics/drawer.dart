@@ -13,6 +13,7 @@ class TopicDrawer extends StatelessWidget {
       child: ListView.separated(
         shrinkWrap: true,
         itemCount: topics.length,
+        // ItemBuilder is used to build the list of the main items in the drawer
         itemBuilder: (BuildContext context, int idx) {
           Topic topic = topics[idx];
           return Column(
