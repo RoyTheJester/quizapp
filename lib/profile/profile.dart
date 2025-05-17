@@ -51,6 +51,8 @@ class ProfileScreen extends StatelessWidget {
         bottomNavigationBar: const BottomNavBar(),
       );
     }
+
+    // This doesn't really matter as a user that is not at least using the guest account won't even be able to see this - even if they sign in as a guest via the annonymous login method it still counts as a user
     return Scaffold(
       appBar: AppBar(title: Text('Guest'), backgroundColor: Colors.deepPurple),
 

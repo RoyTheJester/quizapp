@@ -10,8 +10,7 @@ class AuthService {
   final userStream = FirebaseAuth.instance.authStateChanges();
 
   // The second way is to get the user synchronously.
-  // This is useful when you have an event like a button press and you want
-  // to check if the user is logged in or not.
+  // This is useful when you have an event like a button press and you want to check if the user is logged in or not.
   final user = FirebaseAuth.instance.currentUser;
 
   // Anonymous Firebase login
