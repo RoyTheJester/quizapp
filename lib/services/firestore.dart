@@ -61,7 +61,7 @@ class FirestoreService {
       'total': FieldValue.increment(1),
       'topics': {
         // Merge value into a Firestore list
-        FieldValue.arrayUnion([quiz.id]),
+        quiz.topic: FieldValue.arrayUnion([quiz.id]),
       },
     };
 
