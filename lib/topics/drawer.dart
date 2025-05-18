@@ -15,8 +15,8 @@ class TopicDrawer extends StatelessWidget {
         shrinkWrap: true,
         itemCount: topics.length,
         // ItemBuilder is used to build the list of the main items in the drawer
-        itemBuilder: (BuildContext context, int idx) {
-          Topic topic = topics[idx];
+        itemBuilder: (BuildContext context, int index) {
+          Topic topic = topics[index];
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,7 +36,7 @@ class TopicDrawer extends StatelessWidget {
             ],
           );
         },
-        separatorBuilder: (BuildContext context, int idx) => const Divider(),
+        separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
     );
   }

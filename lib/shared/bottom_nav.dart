@@ -22,7 +22,7 @@ class BottomNavBar extends StatelessWidget {
         ),
       ],
       fixedColor: Colors.deepPurple[200],
-      onTap: (int idx) {
+      onTap: (int index) {
         // Define a list of routes corresponding to the BottomNavigationBar items
         const routes = ['/topics', '/about', '/profile'];
 
@@ -30,8 +30,8 @@ class BottomNavBar extends StatelessWidget {
         String currentRoute = ModalRoute.of(context)?.settings.name ?? '';
 
         // Navigate to the selected route if it's not the current route
-        if (currentRoute != routes[idx]) {
-          Navigator.pushNamed(context, routes[idx]);
+        if (currentRoute != routes[index]) {
+          Navigator.pushNamed(context, routes[index]);
         }
       },
     );
