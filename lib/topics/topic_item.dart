@@ -86,6 +86,7 @@ class TopicScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          Flexible(child: TopicProgress(topic: topic)),
         ],
       ),
     );
