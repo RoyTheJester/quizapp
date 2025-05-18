@@ -6,11 +6,7 @@ class AnimatedProgressbar extends StatelessWidget {
   final double value;
   final double height;
 
-  const AnimatedProgressbar({
-    super.key,
-    required this.value,
-    required this.height,
-  });
+  const AnimatedProgressbar({super.key, required this.value, this.height = 12});
 
   @override
   Widget build(BuildContext context) {
